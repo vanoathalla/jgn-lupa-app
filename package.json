@@ -1,0 +1,83 @@
+{
+  "name": "jgn-lupa-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "set NODE_ENV=development && electron .",
+    "electron:build": "vite build && electron-builder"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/cli": "^8.6.2",
+    "@capacitor/core": "^8.6.2",
+    "@capacitor/local-notifications": "^8.3.1",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.400.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.3.1"
+  },
+  "build": {
+    "appId": "com.jgnlupa.app",
+    "productName": "Jgn Lupa",
+    "asar": true,
+    "files": [
+      "dist/**/*",
+      "electron.cjs",
+      "preload.cjs",
+      "public/icon.ico",
+      "public/tray-icon.ico",
+      "public/alarm.wav"
+    ],
+    "extraResources": [
+      {
+        "from": "public/alarm.wav",
+        "to": "alarm.wav"
+      },
+      {
+        "from": "public/icon.ico",
+        "to": "icon.ico"
+      },
+      {
+        "from": "public/tray-icon.ico",
+        "to": "tray-icon.ico"
+      }
+    ],
+    "directories": {
+      "output": "dist-electron"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/icon.ico",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Jgn Lupa"
+    }
+  }
+}

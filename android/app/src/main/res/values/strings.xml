@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Jgn Lupa</string>
+    <string name="title_activity_main">Jgn Lupa</string>
+    <string name="package_name">com.jgnlupa.app</string>
+    <string name="custom_url_scheme">com.jgnlupa.app</string>
+</resources>
